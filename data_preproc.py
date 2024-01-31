@@ -82,6 +82,9 @@ gdp_strir_aptsum = pd.concat([gdp_strir_06_23, sum_apart], axis=1, ignore_index=
 gdp_strir_aptsum.columns = ['GDP성장률', '금리', '거래건수']
 #print(gdp_strir_aptsum)
 
+gdp_strir_aptsum.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\ir_data.csv', encoding='euc-kr')
+
+'''
 # 그래프 그리기 (선 그래프)
 plt.figure(figsize = (12,10))
 
@@ -98,4 +101,5 @@ plt.figure(figsize = (15,10))
 
 sns.scatterplot(x='금리', y='거래건수', data = gdp_strir_aptsum)
 plt.gca().invert_yaxis()
+'''
 # %%
