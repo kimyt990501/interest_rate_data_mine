@@ -1,6 +1,12 @@
 import FinanceDataReader as fdr
 import pandas as pd
 
+# 금리 데이터 가져오기
+#ir_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\stdir.csv', index_col=0 ,encoding='euc-kr') # 전체 경로 (윈도우)
+ir_data = pd.read_csv('interest_rate_data_mine\\data\\stdir.csv', index_col=0 ,encoding='euc-kr') # 상대경로
+ir_data = ir_data[29:]
+#print(ir_data)
+
 # 코스피, 코스닥 지수 데이터 가져오기
 kosdaq = fdr.DataReader('KQ11', '2006-06-01', '2023-07-01')
 kospi = fdr.DataReader('KS11', '2006-06-01', '2023-07-01')
@@ -61,13 +67,15 @@ date = pd.date_range(start="2006-09", end="2023-07", freq="3M")
 kospi_df.index = date
 kosdaq_df.index = date
 kurate_df.index = date
+ir_data.index = date
 
 # 각 데이터 프레임 합친 후 csv 파일로 저장
-kskqku = pd.concat([kospi_df, kosdaq_df, kurate_df], axis=1, ignore_index=True)
-kskqku.columns = ['코스피지수', '코스닥지수', '원달러환율']
-kskqku['코스피지수'] = kskqku['코스피지수'].astype('float')
-kskqku['코스닥지수'] = kskqku['코스닥지수'].astype('float')
-kskqku['원달러환율'] = kskqku['원달러환율'].astype('float')
+ir_kskqku = pd.concat([ir_data, kospi_df, kosdaq_df, kurate_df], axis=1, ignore_index=True)
+ir_kskqku.columns = ['기준금리', '코스피지수', '코스닥지수', '원달러환율']
+ir_kskqku['기준금리'] = ir_kskqku['기준금리'].astype('float')
+ir_kskqku['코스피지수'] = ir_kskqku['코스피지수'].astype('float')
+ir_kskqku['코스닥지수'] = ir_kskqku['코스닥지수'].astype('float')
+ir_kskqku['원달러환율'] = ir_kskqku['원달러환율'].astype('float')
 
-# kskqku.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\kskqku_data.csv', encoding='euc-kr') # 전체경로 (윈도우)
-kskqku.to_csv('interest_rate_data_mine\\data\\kskqku_data.csv', encoding='euc-kr') # 상대경로
+# ir_kskqku.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\ir_kskqku_data.csv', encoding='euc-kr') # 전체경로 (윈도우)
+ir_kskqku.to_csv('interest_rate_data_mine\\data\\ir_kskqku_data.csv', encoding='euc-kr') # 상대경로

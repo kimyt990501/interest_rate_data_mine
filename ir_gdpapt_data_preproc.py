@@ -49,6 +49,9 @@ date = pd.date_range(start="1999-04", end="2023-04", freq="3MS")
 gdp_data.index = date
 std_ir_data.index = date
 
+#std_ir_data.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\stdir.csv', encoding='euc-kr') # 전체 경로 (윈도우)
+std_ir_data.to_csv('interest_rate_data_mine\\data\\stdir.csv', encoding='euc-kr') # 상대경로
+
 #print(gdp_data, std_ir_data)
 
 gdp_strir = pd.concat([gdp_data, std_ir_data], axis=1, ignore_index=True)
