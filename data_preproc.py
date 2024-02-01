@@ -15,7 +15,8 @@ from IPython.display import set_matplotlib_formats
 set_matplotlib_formats('retina')
 
 # 1999년 2분기부터 2023년 2분기까지의 GDP 성장률 데이터 불러오기
-gdp_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\gdp_1999_2_2023_2.csv', encoding='euc-kr')
+#gdp_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\gdp_1999_2_2023_2.csv', encoding='euc-kr') # 전체경로 (윈도우)
+gdp_data = pd.read_csv('interest_rate_data_mine\\data\\gdp_1999_2_2023_2.csv', encoding='euc-kr') # 상대경로
 
 # 결측치 삭제
 gdp_data = gdp_data.dropna()
@@ -32,7 +33,8 @@ gdp_data.columns = ['GDP성장률']
 
 
 # 1999년 2분기부터 2023년 2분기 까지의 기준 금리 데이터 가져오기
-std_ir_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\korea_ir.csv')
+#std_ir_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\korea_ir.csv') # 전체경로 (윈도우)
+std_ir_data = pd.read_csv('interest_rate_data_mine\\data\\korea_ir.csv') # 상대경로
 
 # 필요없는 열 삭제
 std_ir_data = std_ir_data.drop(columns=['통계표', '계정항목', '단위', '변환'])
@@ -61,7 +63,8 @@ std_ir_data = std_ir_data['금리'].astype('float')
 gdp_strir_06_23 = gdp_strir[27:]
 
 # 2006년 1분기부터 2023년 2분기 까지 주택 거래 건수
-sum_apart = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\sum_apart.csv', encoding='euc-kr')
+#sum_apart = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\sum_apart.csv', encoding='euc-kr') # 전체경로 (윈도우)
+sum_apart = pd.read_csv('interest_rate_data_mine\\data\\sum_apart.csv', encoding='euc-kr') # 상대경로
 
 # 필요 없는 행 및 열 삭제
 sum_apart = sum_apart.drop([0, 2, 3])
@@ -82,7 +85,8 @@ gdp_strir_aptsum = pd.concat([gdp_strir_06_23, sum_apart], axis=1, ignore_index=
 gdp_strir_aptsum.columns = ['GDP성장률', '금리', '거래건수']
 #print(gdp_strir_aptsum)
 
-gdp_strir_aptsum.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\ir_data.csv', encoding='euc-kr')
+#gdp_strir_aptsum.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\ir_data.csv', encoding='euc-kr') # 전체경로 (윈도우)
+gdp_strir_aptsum.to_csv('interest_rate_data_mine\\data\\ir_data.csv', encoding='euc-kr') # 상대경로
 
 '''
 # 그래프 그리기 (선 그래프)

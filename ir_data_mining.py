@@ -15,7 +15,8 @@ from IPython.display import set_matplotlib_formats
 set_matplotlib_formats('retina')
 
 # 금리, GDP성장률, 주택거래건수 데이터 불러오기
-ir_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\ir_data_all.csv', index_col=0 ,encoding='euc-kr')
+#ir_data = pd.read_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\ir_data_all.csv', index_col=0 ,encoding='euc-kr') # 전체 경로 (윈도우)
+ir_data = pd.read_csv('interest_rate_data_mine\\data\\ir_data_all.csv', index_col=0 ,encoding='euc-kr')
 
 # 인덱스 값 설정
 #idx = ir_data.index.astype('str')
