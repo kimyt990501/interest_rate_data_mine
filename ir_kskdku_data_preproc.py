@@ -69,4 +69,5 @@ kskqku['코스피지수'] = kskqku['코스피지수'].astype('float')
 kskqku['코스닥지수'] = kskqku['코스닥지수'].astype('float')
 kskqku['원달러환율'] = kskqku['원달러환율'].astype('float')
 
-kskqku.to_csv('kskqku_data.csv', encoding='euc-kr')
+# kskqku.to_csv('C:\\Users\\user\\Desktop\\github_repo\\interest_rate_data_mine\\data\\kskqku_data.csv', encoding='euc-kr') # 전체경로 (윈도우)
+kskqku.to_csv('interest_rate_data_mine\\data\\kskqku_data.csv', encoding='euc-kr') # 상대경로
