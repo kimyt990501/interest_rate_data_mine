@@ -7,8 +7,8 @@
 - 기준 금리의 변동이 과연 GDP성장률, 주택거래건수, 주택 거래 가격과 어떤 관계가 있는지 데이터 시각화를 통해 확인하는 프로젝트
 
 #### 파일 명
-- data_preproc.py (데이터 전처리)
-- ir_data_mining.py (데이터 시각화)
+- ir_gdpapt_data_preproc.py (데이터 전처리)
+- ir_gdpapt_data_mining.py (데이터 시각화)
 
 #### 개발환경
 - IDE: Visual Studio Code
