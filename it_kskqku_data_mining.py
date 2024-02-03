@@ -27,7 +27,10 @@ idx_year = idx.year.astype('str')
 
 # 1.1 데이터 각각 시각화
 
-# 기준 금리, 원/달러 환율 그래프 그리기 (선 그래프)
+# 기준금리를 그래프에서 잘 보이게 하기 위해 500씩 곱해준다
+ir_kskqku_data['기준금리'] = ir_kskqku_data['기준금리'].mul(500)
+
+# 기준 금리, 원/달러 환율 선 그래프로 시각화
 plt.figure(figsize = (12,10))
 
 sns.lineplot(x=idx_year ,y='기준금리', data = ir_kskqku_data, label = "기준금리")
@@ -38,12 +41,25 @@ sns.set_context('poster', font_scale = 1)
 
 plt.xticks(rotation=45)
 
-# 기준 금리, 주가 그래프 그리기 (선 그래프)
+# 기준 금리, 주가 선그래프로 시각화
 plt.figure(figsize = (12,10))
 
 sns.lineplot(x=idx_year ,y='기준금리', data = ir_kskqku_data, label = "기준금리")
 sns.lineplot(x=idx_year ,y='코스피지수', data = ir_kskqku_data, label = "코스피지수")
 sns.lineplot(x=idx_year ,y='코스닥지수', data = ir_kskqku_data, label = "코스닥지수")
+
+plt.legend()
+sns.set_context('poster', font_scale = 1)
+
+plt.xticks(rotation=45)
+
+# 기준 금리, 주가, 원/달러 환율 모든 데이터 선그래프로 시각화
+plt.figure(figsize = (12,10))
+
+sns.lineplot(x=idx_year ,y='기준금리', data = ir_kskqku_data, label = "기준금리")
+sns.lineplot(x=idx_year ,y='코스피지수', data = ir_kskqku_data, label = "코스피지수")
+sns.lineplot(x=idx_year ,y='코스닥지수', data = ir_kskqku_data, label = "코스닥지수")
+sns.lineplot(x=idx_year ,y='원달러환율', data = ir_kskqku_data, label = "원/달러환율")
 
 plt.legend()
 sns.set_context('poster', font_scale = 1)
